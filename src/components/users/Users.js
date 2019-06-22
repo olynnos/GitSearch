@@ -1,40 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+
+import Spinner from "../layout/Spinner";
 import UserItem from "./UserItem";
 
-export default class Users extends Component {
-  state = {
-    users: [
-      {
-        id: "1",
-        login: "john",
-        avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-        html_url: "https://google.com"
-      },
-      {
-        id: "2",
-        login: "john",
-        avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-        html_url: "https://google.com"
-      },
-      {
-        id: "3",
-        login: "john",
-        avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-        html_url: "https://google.com"
-      }
-    ]
-  };
-
-  render() {
-    return (
-      <div style={userStyle}>
-        {this.state.users.map(user => (
-          <UserItem key={user.id} user={user} />
-        ))}
-      </div>
-    );
-  }
-}
+const Users = ({ users, loading }) =>
+  loading ? (
+    <Spinner />
+  ) : (
+    <div style={userStyle}>
+      {users.map(user => (
+        <UserItem key={user.id} user={user} />
+      ))}
+    </div>
+  );
 
 // Using variable to add styles to a div. This is one way to do it
 const userStyle = {
@@ -42,3 +21,11 @@ const userStyle = {
   gridTemplateColumns: "repeat(3, 1fr)",
   gridGap: "1rem"
 };
+
+// Using proptypes to ensure we get the desired types
+Users.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+};
+
+export default Users;
