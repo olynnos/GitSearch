@@ -5,7 +5,7 @@ import { TiWarningOutline } from "react-icons/ti";
 const Alert = ({ alert }) => {
   return (
     alert !== null && (
-      <div className={`alert alert-${alert.type}`}>
+      <div className={`alert alert-${alert.type} alert-custom`}>
         <IconContext.Provider value={{ className: "alert-icon" }}>
           <TiWarningOutline /> {alert.msg}
         </IconContext.Provider>
