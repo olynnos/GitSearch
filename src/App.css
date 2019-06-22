@@ -383,8 +383,14 @@ table th {
   margin-right: 1rem;
 }
 
+.alert-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
 .custom-nav {
-  justify-content: start !important;
+  justify-content: space-evenly !important;
 }
 
 /* end of custom css */
